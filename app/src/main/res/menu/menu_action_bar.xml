@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu">
+    <item
+        android:title="@string/city_meny"
+        android:id="@+id/menu_city"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_open_menu"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="@string/menu_open_menu"
+        app:showAsAction="always" />
+
+
+</menu>

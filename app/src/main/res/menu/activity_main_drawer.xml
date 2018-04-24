@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="@string/settings_menu_text" />
+        <item
+            android:id="@+id/nav_source"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="@string/source_menu_text" />
+
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@android:drawable/ic_dialog_email"
+            android:title="@string/send_menu_text" />
+    </group>
+    <item android:title="@string/infocontacts_menu">
+        <menu>
+            <item
+                android:id="@+id/nav_info"
+                android:icon="@android:drawable/ic_dialog_info"
+                android:title="@string/info_menu_text" />
+            <item
+                android:id="@+id/nav_authors"
+                android:icon="@android:drawable/ic_menu_myplaces"
+                android:title="@string/authors_menu_text" />
+            <item
+                android:id="@+id/nav_contacts"
+                android:icon="@android:drawable/ic_menu_send"
+                android:title="@string/contacts_menu_text" />
+        </menu>
+    </item>
+
+</menu>
