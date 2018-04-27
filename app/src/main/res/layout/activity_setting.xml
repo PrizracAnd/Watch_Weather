@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/label_um"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
+        android:text="@string/textUM"
+        />
+
+    <TextView
+        android:id="@+id/label_temper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_um"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
+        android:text="@string/textTemper"/>
+
+    <TextView
+        android:id="@+id/um_temper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_temper"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"/>
+
+
+    <TextView
+        android:id="@+id/label_pressure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/um_temper"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
+        android:text="@string/textPressure"/>
+
+    <TextView
+        android:id="@+id/um_pressure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_pressure"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"/>
+
+    <TextView
+        android:id="@+id/label_humidity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/um_pressure"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
+        android:text="@string/textHumidity"/>
+
+    <TextView
+        android:id="@+id/um_humidity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_humidity"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"/>
+
+</RelativeLayout>
