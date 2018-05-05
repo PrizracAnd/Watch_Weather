@@ -24,4 +24,6 @@
     <string name="textUM">Units of measurements</string>
     <string name="textPS">Priority source:</string>
     <string name="textSources">Sources:</string>
+    <string name="navigation_drawer_open">Navigation drawer open</string>
+    <string name="navigation_drawer_clouse">Navigation drawer clouse</string>
 </resources>

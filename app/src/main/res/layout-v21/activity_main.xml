@@ -21,7 +21,7 @@
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.10" />
+        app:layout_constraintVertical_bias="@dimen/vertical_bias_temper" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -104,14 +104,28 @@
         app:srcCompat="@android:drawable/ic_dialog_email"
         android:focusable="true" />
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
+        tools:openDrawer="start"
+        >
+        <include
+            layout="@layout/app_bar_main"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
+        </include>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/activity_main_drawer" />
+    </android.support.v4.widget.DrawerLayout>
 
 </android.support.constraint.ConstraintLayout>

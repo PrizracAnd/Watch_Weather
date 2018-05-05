@@ -26,4 +26,6 @@
     <string name="textSources">Sources:</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="navigation_drawer_open">Navigation drawer open</string>
+    <string name="navigation_drawer_clouse">Navigation drawer clouse</string>
 </resources>

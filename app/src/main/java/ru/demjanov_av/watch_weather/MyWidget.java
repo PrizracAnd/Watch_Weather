@@ -7,13 +7,15 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+import ru.demjanov_av.watch_weather.models.CityWeather;
+
 /**
  * Implementation of App Widget functionality.
  */
 public class MyWidget extends AppWidgetProvider implements RemoteViewsService.RemoteViewsFactory {
 
     public static final String NO_DATA = "NOT DATA FOUND";
-    private static MyCurrentWeather mcw;
+    private static CityWeather mcw;
     Context context;
 
 
@@ -26,8 +28,8 @@ public class MyWidget extends AppWidgetProvider implements RemoteViewsService.Re
                                 int appWidgetId) {
 
         CharSequence cityText;
-        if(mcw.cytyName != null) {
-            cityText = mcw.cytyName;
+        if(mcw.name != null) {
+            cityText = mcw.name;
         } else cityText = NO_DATA;
 
         CharSequence weatherText;
@@ -63,7 +65,7 @@ public class MyWidget extends AppWidgetProvider implements RemoteViewsService.Re
 
     @Override
     public void onCreate() {
-        mcw = new MyCurrentWeather();
+        mcw = new CityWeather();
     }
 
     @Override
