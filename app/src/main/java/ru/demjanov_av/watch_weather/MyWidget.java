@@ -17,10 +17,12 @@ public class MyWidget extends AppWidgetProvider implements RemoteViewsService.Re
     public static final String NO_DATA = "NOT DATA FOUND";
     private static CityWeather mcw;
     Context context;
+    Intent intent;
 
 
     public MyWidget(Context context, Intent intent){
         this.context = context;
+        this.intent = intent;
     }
 
 
