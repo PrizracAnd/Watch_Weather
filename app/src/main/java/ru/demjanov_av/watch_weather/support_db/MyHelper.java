@@ -4,11 +4,17 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.Calendar;
+
+import ru.demjanov_av.watch_weather.ResourceGetter;
+
 /**
  * Created by demjanov on 28.04.2018.
  */
 
 public class MyHelper extends SQLiteOpenHelper {
+
+    private Context context;
 
     //-----Data base parameters begin-----------
     private static final String DATABASE_NAME = "weather.db";   //--название бд
@@ -56,12 +62,18 @@ public class MyHelper extends SQLiteOpenHelper {
     ////////////////////////////////////////////
     public MyHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
 
+    ////////////////////////////////////////////
+    //Method onCreate
+    ////////////////////////////////////////////
     @Override
     public void onCreate(SQLiteDatabase db) {
-       //-----Create table cities----------------
+
+        //-----Create table begin-----------------
+        //-----Create table cities----------------
         db.execSQL("CREATE TABLE " + TABLE_CITIES + " (" +
                 COLUMN_CITY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_CITY_NAME + " TEXT, " +
@@ -91,9 +103,30 @@ public class MyHelper extends SQLiteOpenHelper {
                 COLUMN_SOURCE_IMAGE + " TEXT, " +
                 COLUMN_SOURCE_PRIORITY + " TEXT);"
         );
+        //-----Create table end-------------------
 
+        //-----Insert into table begin------------
+        ResourceGetter rg = new ResourceGetter(this.context);
+
+        //-----Insert into table cities-----------
+        String[] cities = rg.getCities("en");
+        for (int i = 0; i < cities.length; i++){
+            db.execSQL("INSERT INTO " + TABLE_CITIES +
+                    " (" + COLUMN_CITY_NAME + ", " +
+                    COLUMN_CITY_DATE +
+                    ") VALUES (" +
+                    cities[i] + ", " +
+                    Calendar.getInstance().getTime().toString() +
+                    ");"
+            );
+        }
+        //-----Insert into table end--------------
     }
 
+
+    ////////////////////////////////////////////
+    //Method onUpgrade
+    ////////////////////////////////////////////
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL ("DROP TABLE IF EXISTS " + TABLE_CITIES);
