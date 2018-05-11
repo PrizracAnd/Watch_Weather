@@ -26,4 +26,6 @@
     <string name="textSources">Sources:</string>
     <string name="navigation_drawer_open">Navigation drawer open</string>
     <string name="navigation_drawer_clouse">Navigation drawer clouse</string>
+    <string name="default_gradus">F</string>
+    <string name="default_pressure">hPa</string>
 </resources>

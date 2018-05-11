@@ -5,4 +5,9 @@
         <item>Paris</item>
         <item>Washington</item>
     </string-array>
+
+    <string-array name="pressures">
+        <item>hPa</item>
+        <item>mm Hg</item>
+    </string-array>
 </resources>

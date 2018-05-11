@@ -7,6 +7,10 @@ import android.support.annotation.Nullable;
  */
 
 public class Measure {
+    public static final String DOMAIN_TEMPER = "TEMPER";
+    public static final String DOMAIN_PRESSURE = "PRESSURE";
+    public static final String DOMAIN_HUMIDITY = "HUMIDITY";
+
     public long id_db;
     public String domain;
     public String name;

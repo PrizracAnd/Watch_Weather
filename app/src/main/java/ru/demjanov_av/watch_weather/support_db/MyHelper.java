@@ -6,7 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.Calendar;
 
+import ru.demjanov_av.watch_weather.R;
 import ru.demjanov_av.watch_weather.ResourceGetter;
+import ru.demjanov_av.watch_weather.models.Measure;
 
 /**
  * Created by demjanov on 28.04.2018.
@@ -15,6 +17,8 @@ import ru.demjanov_av.watch_weather.ResourceGetter;
 public class MyHelper extends SQLiteOpenHelper {
 
     private Context context;
+    public static final String CONST_YES = "'Y'";
+    public static final String CONST_NO = "'N'";
 
     //-----Data base parameters begin-----------
     private static final String DATABASE_NAME = "weather.db";   //--название бд
@@ -120,6 +124,84 @@ public class MyHelper extends SQLiteOpenHelper {
                     ");"
             );
         }
+
+        //-----Insert into table measures-----------
+        String chek = CONST_NO;
+        if(rg.getCurrentGradus().equals("C")) chek = CONST_YES;
+        db.execSQL("INSERT INTO " + TABLE_MEASURES +
+                " (" + COLUMN_MEASURE_DOMAIN + ", " +
+                COLUMN_MEASURE_NAME + ", " +
+                COLUMN_MEASURE_LNAME + ", " +
+                COLUMN_MEASURE_CHEK +
+                ") VALUES ('" +
+                Measure.DOMAIN_TEMPER + "', " +
+                "'C'" + ", " +
+                "'Celsius'" + ", " +
+                chek +
+                ");"
+        );
+
+        chek = CONST_NO;
+        if(rg.getCurrentGradus().equals("F")) chek = CONST_YES;
+        db.execSQL("INSERT INTO " + TABLE_MEASURES +
+                " (" + COLUMN_MEASURE_DOMAIN + ", " +
+                COLUMN_MEASURE_NAME +  ", " +
+                COLUMN_MEASURE_LNAME +  ", " +
+                COLUMN_MEASURE_CHEK +
+                ") VALUES ('" +
+                Measure.DOMAIN_TEMPER + "', " +
+                "'F'" + ", " +
+                "'Fahrenheit'" + ", " +
+                chek +
+                ");"
+        );
+
+        int numChek = rg.getNumberCurrentPressure();
+//        String[] pressures = rg.getPressures("en");
+        String[] pressures = context.getResources().getStringArray(R.array.pressures);
+        for(int i = 0; i < pressures.length; i++){
+            chek = CONST_NO;
+            if(i == numChek) chek = CONST_YES;
+            db.execSQL("INSERT INTO " + TABLE_MEASURES +
+                    " (" + COLUMN_MEASURE_DOMAIN + ", " +
+                    COLUMN_MEASURE_NAME + ", " +
+//                    COLUMN_MEASURE_LNAME + ", " +
+                    COLUMN_MEASURE_CHEK +
+                    ") VALUES (" +
+                    Measure.DOMAIN_PRESSURE + ", " +
+                    pressures[i] + ", " +
+//                    "" + ", " +
+                    chek +
+                    ");"
+            );
+        }
+
+        db.execSQL("INSERT INTO " + TABLE_MEASURES +
+                " (" + COLUMN_MEASURE_DOMAIN + ", " +
+                COLUMN_MEASURE_NAME + ", " +
+                COLUMN_MEASURE_LNAME + ", " +
+                COLUMN_MEASURE_CHEK +
+                ") VALUES ('" +
+                Measure.DOMAIN_HUMIDITY + "', " +
+                "'%'" + ", " +
+                "'%'" + ", " +
+                CONST_YES +
+                ");"
+        );
+
+        //-----Insert into table sources-----------
+        db.execSQL("INSERT INTO " + TABLE_SOURCES +
+                " (" + COLUMN_SOURCE_NAME + ", " +
+                COLUMN_CONNECTION +
+//                COLUMN_SOURCE_IMAGE +
+                COLUMN_SOURCE_PRIORITY +
+                ") VALUES (" +
+                "'Open Weather'" + ", " +
+                "'http://api.openweathermap.org/data/2.5/weather?q=%s&units=metric'" + ", " +
+//                "'%'" + ", " +
+                CONST_YES +
+                ");"
+        );
         //-----Insert into table end--------------
     }
 
