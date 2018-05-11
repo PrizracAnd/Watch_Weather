@@ -217,4 +217,50 @@ public class MyHelper extends SQLiteOpenHelper {
         onCreate (db);
 
     }
+
+
+    ////////////////////////////////////////////
+    //Method getAllColumn
+    ////////////////////////////////////////////
+    public String[] getAllColumn(String tableName){
+        String[] allColumn = new String[0];
+
+        switch (tableName){
+            case TABLE_CITIES:
+                allColumn = new String[]{
+                        COLUMN_CITY_ID	        //--primary key
+                        , COLUMN_CITY_NAME      //--название города
+                        , COLUMN_TEMPER         //--температура
+                        , COLUMN_WEATHER	    //--погода
+                        , COLUMN_PRESSURE	    //--давление
+                        , COLUMN_HUMIDITY	    //--влажность
+                        , COLUMN_CITY_DATE      //--дата обращения
+                };
+                break;
+            case TABLE_MEASURES:
+                allColumn = new String[]{
+                        COLUMN_MEASURE_ID	        //--primary key
+                        , COLUMN_MEASURE_DOMAIN     //--домен (категория)
+                        , COLUMN_MEASURE_NAME	    //--название
+                        , COLUMN_MEASURE_LNAME	    //--длинное название
+                        , COLUMN_MEASURE_CHEK       //--признак текущего выбора
+
+                };
+                break;
+            case TABLE_SOURCES:
+                allColumn = new String[]{
+                        COLUMN_SOURCE_ID 	        //--primary key
+                        , COLUMN_SOURCE_NAME	    //--навание
+                        , COLUMN_CONNECTION 	    //--строка запроса
+                        , COLUMN_SOURCE_IMAGE       //--код изображения
+                        , COLUMN_SOURCE_PRIORITY    //--признак приорететности
+
+                };
+                break;
+            default:
+                break;
+        }
+
+        return allColumn;
+    }
 }
