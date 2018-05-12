@@ -104,7 +104,7 @@ public class MyHelper extends SQLiteOpenHelper {
                 COLUMN_SOURCE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_SOURCE_NAME + " TEXT, " +
                 COLUMN_CONNECTION + " TEXT, " +
-                COLUMN_SOURCE_IMAGE + " TEXT, " +
+                COLUMN_SOURCE_IMAGE + " INTEGER, " +
                 COLUMN_SOURCE_PRIORITY + " TEXT);"
         );
         //-----Create table end-------------------

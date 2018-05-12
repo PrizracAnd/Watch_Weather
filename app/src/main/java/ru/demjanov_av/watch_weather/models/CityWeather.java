@@ -29,6 +29,15 @@ public class CityWeather {
         this.humidity = humidity;
     }
 
+//    public CityWeather(String name, long id_db,  @Nullable String weather, @Nullable String pressure, @Nullable String humidity){
+//        this.id_db = id_db;
+//        this.name = name;
+//        this.istemper = false;
+//        this.weather = weather;
+//        this.pressure = pressure;
+//        this.humidity = humidity;
+//    }
+
     public CityWeather(String name, long id_db, long temper, @Nullable String weather, @Nullable String pressure, @Nullable String humidity){
         this.id_db = id_db;
         this.name = name;
